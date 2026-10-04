@@ -1,0 +1,37 @@
+#python
+__pycache__/
+*.py[cod]
+*.so
+
+#virtual environment
+.venv/
+
+#environment variables
+.env
+
+# IDE
+.vscode/
+
+#macOS
+.DS_store
+
+#Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+#Build
+dist/
+build/
+*.egg-info/
+
+#local data
+data/*
+!data/.gitkeep
+
+### "never commit these mistakes" to github ###
+# .venv/
+# .env 
+# .venv/ is a local virtual environment folder, and .env is a local environment variable file. Both of these files should never be committed to GitHub, as they contain sensitive information and are specific to your local development environment.
+
+putting .venv/ and .env in the .gitignore file ensures that they are not tracked by Git, preventing accidental commits of sensitive data. This is a best practice for maintaining security and privacy in your projects.
