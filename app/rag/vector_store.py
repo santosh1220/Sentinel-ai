@@ -15,6 +15,7 @@ class VectorStore:
         self,
         documents: list[str],
         embeddings: list[list[float]],
+        metadatas: list[dict],
     ) -> None:
 
         ids = [
@@ -26,6 +27,7 @@ class VectorStore:
             ids=ids,
             documents=documents,
             embeddings=embeddings,
+            metadatas=metadatas
         )
 
     def search(

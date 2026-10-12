@@ -10,6 +10,33 @@ documents = [
     "Employees should lock their computer when leaving their desk.",
 ]
 
+metadatas = [
+    {
+        "source": "security_policy.pdf",
+        "page": 12,
+        "department": "security",
+    },
+    {
+        "source": "access_policy.pdf",
+        "page": 5,
+        "department": "IT",
+    },
+    {
+        "source": "password_policy.pdf",
+        "page": 3,
+        "department": "security",
+    },
+    {
+        "source": "incident_response.pdf",
+        "page": 18,
+        "department": "security",
+    },
+    {
+        "source": "employee_security.pdf",
+        "page": 7,
+        "department": "security",
+    },
+]
 
 embedding_service = EmbeddingService()
 
@@ -20,6 +47,7 @@ vector_store = VectorStore()
 vector_store.add_documents(
     documents,
     embeddings.tolist(),
+    metadatas
 )
 
 query = "How quickly must security incidents be reported?"
@@ -36,5 +64,12 @@ print(query)
 
 print("\nRetrieved documents:")
 
-for document in results["documents"][0]:
-    print("-", document)
+for document, metadata in zip(
+    results["documents"][0],
+    results["metadatas"][0],
+):
+    print("\nDocument:")
+    print(document)
+
+    print("Metadata:")
+    print(metadata)
