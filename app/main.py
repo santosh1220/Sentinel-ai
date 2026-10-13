@@ -1,7 +1,11 @@
-from app.core.config import PROJECT_NAME, VERSION
-def main() -> None:
-    print(f"Welcome to {PROJECT_NAME} version {VERSION}!")
+from fastapi import FastAPI
 
-if __name__ == "__main__":
-    main()
+from app.api.routes import router
 
+app = FastAPI(
+    title="SentinelAI API",
+    description="Enterprise knowledge assistant powered by RAG and a local LLM.",
+    version="0.1.0",
+)
+
+app.include_router(router)

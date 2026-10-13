@@ -7,8 +7,26 @@ name = "sentinel-ai"
 version = "0.1.0"
 description = "AI-powered enterprise security and knowledge platform"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "ollama",
+    "sentence-transformers",
+    "chromadb",
+    "pypdf",
+    "scikit-learn",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["tests*", "scripts*", "data*"]
